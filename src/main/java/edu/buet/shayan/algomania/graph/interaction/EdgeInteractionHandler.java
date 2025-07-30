@@ -1,7 +1,5 @@
 package edu.buet.shayan.algomania.graph.interaction;
 
-//import edu.buet.shayan.graphvisualizerapp.model.*;
-//import edu.buet.shayan.graphvisualizerapp.ui.GraphCanvas;
 import edu.buet.shayan.algomania.graph.algorithm.*;
 import edu.buet.shayan.algomania.graph.ui.*;
 import edu.buet.shayan.algomania.graph.parser.*;

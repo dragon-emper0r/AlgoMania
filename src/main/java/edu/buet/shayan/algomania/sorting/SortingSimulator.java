@@ -12,6 +12,7 @@ import edu.buet.shayan.algomania.sorting.implementation.*;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
@@ -25,6 +26,8 @@ public class SortingSimulator extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Data Structure Simulator - Sorting Algorithms");
+        Image icon = new Image("C:\\Users\\hp\\Desktop\\AlgoMania\\src\\main\\java\\edu\\buet\\shayan\\algomania\\images\\sorting_icon.png");
+        primaryStage.getIcons().add(icon);
 
         // Initialize components
         controlPanel = new ControlPanel();

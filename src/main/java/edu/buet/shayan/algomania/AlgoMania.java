@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Glow;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.LinearGradient;
@@ -84,10 +85,11 @@ public class AlgoMania extends Application {
         boxesContainer.getChildren().addAll(graphBox, sortBox, dataBox);
         mainContainer.getChildren().addAll(title, subtitle, boxesContainer);
 
-        Scene scene = new Scene(mainContainer, 1200, 700);
+        Scene scene = new Scene(mainContainer, 1200, 650);
         primaryStage.setTitle("AlgoMania - Algorithm Visualizer Suite");
         primaryStage.setScene(scene);
-//        primaryStage.setResizable(false);
+        Image icon = new Image("C:\\Users\\hp\\Desktop\\AlgoMania\\src\\main\\java\\edu\\buet\\shayan\\algomania\\images\\main_icon.png");
+        primaryStage.getIcons().add(icon);
         primaryStage.show();
     }
 
@@ -233,45 +235,39 @@ public class AlgoMania extends Application {
         pane.getChildren().addAll(base, middle, top, leftLine, rightLine, root, left, right);
         return pane;
     }
+private void launchGraphVisualizer() {
+    try {
+        System.out.println("Attempting to launch Graph Visualizer...");
 
-    private void launchGraphVisualizer() {
-        try {
-            // Replace with your actual Graph Visualizer main class
-            // GraphVisualizerMain.main(new String[]{});
-            Stage graphStage = new Stage();
-            // For now, create a new stage as placeholder
-            GraphVisualizerApp g = new GraphVisualizerApp();
-            g.start(graphStage);
-//            Label placeholder = new Label("Graph Visualizer\n\nReplace this with your actual GraphVisualizerMain.main() call");
-//            placeholder.setFont(Font.font("Arial", 16));
-//            placeholder.setAlignment(Pos.CENTER);
-//
-//            Scene scene = new Scene(placeholder, 600, 400);
-//            graphStage.setTitle("Graph Visualizer");
-//            graphStage.setScene(scene);
-//            graphStage.show();
+        Stage graphStage = new Stage();
+        GraphVisualizerApp g = new GraphVisualizerApp();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        System.out.println("GraphVisualizerApp instance created successfully");
+
+        g.start(graphStage);
+
+        System.out.println("Graph Visualizer launched successfully");
+
+    } catch (Exception e) {
+        System.err.println("Error launching Graph Visualizer:");
+        System.err.println("Error type: " + e.getClass().getSimpleName());
+        System.err.println("Error message: " + e.getMessage());
+        e.printStackTrace();
+
+        // Show error dialog to user
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Failed to launch Graph Visualizer");
+        alert.setContentText("Error: " + e.getMessage());
+        alert.showAndWait();
     }
+}
 
     private void launchSortingSimulator() {
         try {
-            // Replace with your actual Sorting Simulator main class
-            // SortingSimulatorMain.main(new String[]{});
-
             Stage sortStage = new Stage();
             SortingSimulator s = new SortingSimulator();
             s.start(sortStage);
-//            Label placeholder = new Label("Sorting Simulator\n\nReplace this with your actual SortingSimulatorMain.main() call");
-//            placeholder.setFont(Font.font("Arial", 16));
-//            placeholder.setAlignment(Pos.CENTER);
-//
-//            Scene scene = new Scene(placeholder, 600, 400);
-//            sortStage.setTitle("Sorting Simulator");
-//            sortStage.setScene(scene);
-//            sortStage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -280,21 +276,9 @@ public class AlgoMania extends Application {
 
     private void launchDataStructureVisualizer() {
         try {
-            // Replace with your actual Data Structure Visualizer main class
-            // DataStructureVisualizerMain.main(new String[]{});
-
             Stage dataStage = new Stage();
             DataStructuresVisualizer d = new DataStructuresVisualizer();
             d.start(dataStage);
-//            Label placeholder = new Label("Data Structure Visualizer\n\nReplace this with your actual DataStructureVisualizerMain.main() call");
-//            placeholder.setFont(Font.font("Arial", 16));
-//            placeholder.setAlignment(Pos.CENTER);
-//
-//            Scene scene = new Scene(placeholder, 600, 400);
-//            dataStage.setTitle("Data Structure Visualizer");
-//            dataStage.setScene(scene);
-//            dataStage.show();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
